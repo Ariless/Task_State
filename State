@@ -1,0 +1,58 @@
+package by.darya_belaya.bean;
+
+public class State {
+
+	private String name;
+	private String capital;
+	private Region[] regions;
+	private int numRegions;
+
+	private int countReg = 0;
+	private int sumArea = 0;
+
+	public State(String StName, String capital, int numRegions) {
+		this.name = StName;
+		this.capital = capital;
+		this.numRegions = numRegions;
+		this.regions = new Region[numRegions];
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getCapical() {
+		return capital;
+	}
+
+	public int getNumReg() {
+		return numRegions;
+	}
+
+	public void addRegion(Region region) {
+		if (countReg < numRegions) {
+			regions[countReg] = region;
+			countReg++;
+		}
+	}
+
+	public int countAreas() {
+		for (Region region : this.regions) {
+			sumArea = sumArea + region.getArea();
+		}
+		return sumArea;
+	}
+
+	public int showArea() {
+		int area = countAreas();
+		return area;
+	}
+
+	public void showRegions() {
+		for (Region region : this.regions) {
+			System.out.println("Region: " + region.getReg() + ", Reg.center: " + region.getRegcenter() + ", area: "
+					+ region.getArea());
+		}
+	}
+
+}
