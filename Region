@@ -1,0 +1,44 @@
+package by.darya_belaya.bean;
+
+public class Region {
+
+	private String region;
+	private String regcenter;
+	private City[] cities;
+	private int area;
+
+	private int count = 0;
+
+	public Region(String newRegion, String newRegcenter, int area, int numCities) {
+		this.region = newRegion;
+		this.regcenter = newRegcenter;
+		cities = new City[numCities];
+		this.area = area;
+	}
+
+	public String getReg() {
+		return region;
+	}
+
+	public String getRegcenter() {
+		return regcenter;
+	}
+
+	public int getArea() {
+		return area;
+	}
+
+	public void addCity(City city) {
+		if (count < cities.length) {
+			cities[count] = city;
+			count++;
+		}
+	}
+
+	public void displayCities() {
+		for (City city : this.cities) {
+			System.out.println(city.getCity());
+		}
+	}
+
+}
