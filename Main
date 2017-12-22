@@ -1,0 +1,64 @@
+package by.darya_belaya.runner;
+
+import by.darya_belaya.bean.State;
+import by.darya_belaya.bean.Region;
+import by.darya_belaya.bean.City;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		int area = 0;
+
+		Region brestky = new Region("Brestskij", "Brest", 33, 3);
+		Region vitebsky = new Region("Vitebskij", "Vitebsk", 40, 3);
+		Region gomelsky = new Region("Gomelskij", "Gomel", 40, 3);
+		Region grodnensky = new Region("Grodnenskij", "Grodno", 25, 3);
+		Region mogilevsky = new Region("Mogilevskij", "Mogilev", 29, 3);
+		Region minsky = new Region("Minskij", "Minsk", 40, 3);
+
+		brestky.addCity(new City("Brest"));
+		brestky.addCity(new City("Pinsk"));
+		brestky.addCity(new City("Kobryn"));
+
+		vitebsky.addCity(new City("Vitsebsk"));
+		vitebsky.addCity(new City("Polotsk"));
+		vitebsky.addCity(new City("Orsha"));
+
+		gomelsky.addCity(new City("Gomel"));
+		gomelsky.addCity(new City("Dobrush"));
+		gomelsky.addCity(new City("Rechitsa"));
+
+		grodnensky.addCity(new City("Grodno"));
+		grodnensky.addCity(new City("Lida"));
+		grodnensky.addCity(new City("Novogrudok"));
+
+		mogilevsky.addCity(new City("Mogilev"));
+		mogilevsky.addCity(new City("Shklov"));
+		mogilevsky.addCity(new City("Hotimsk"));
+
+		mogilevsky.addCity(new City("Mogilev"));
+		mogilevsky.addCity(new City("Shklov"));
+		mogilevsky.addCity(new City("Hotimsk"));
+
+		minsky.addCity(new City("Minsk"));
+		minsky.addCity(new City("Logoysk"));
+		minsky.addCity(new City("Slutsk"));
+
+		State belarus = new State("Republic of Belarus", "Minsk", 6);
+
+		belarus.addRegion(mogilevsky);
+		belarus.addRegion(grodnensky);
+		belarus.addRegion(gomelsky);
+		belarus.addRegion(vitebsky);
+		belarus.addRegion(brestky);
+		belarus.addRegion(minsky);
+
+		System.out.println("State: " + belarus.getName() + ", Number of Regions " + belarus.getNumReg());
+		System.out.println("Capital: " + belarus.getCapical());
+		System.out.println(
+				"Area of " + belarus.getName() + " is about " + belarus.showArea() + " thoudsands of square km");
+
+		belarus.showRegions();
+	}
+}
